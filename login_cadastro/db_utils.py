@@ -96,7 +96,7 @@ def salvar_form_usuario(informacoes_pessoais, endereco, preferencia_user):
             banco = sqlite3.connect("form_user.db")
             cursor = banco.cursor()
             cursor.execute("CREATE TABLE IF NOT EXISTS form_user (nome text, telefone number, senha password, estado text, cidade text, bairro text, num_casa number)")
-            cursor.execute(f"INSERT INTO form_user VALUES (?, ?, ?, ?, ?, ?, ?)", (nome, email, senha)) #Insere os valores no banco
+            cursor.execute(f"INSERT INTO form_user VALUES (?, ?, ?, ?, ?, ?, ?  )", (nome, email, senha)) #Insere os valores no banco
             banco.commit()
             banco.close()
     except:
