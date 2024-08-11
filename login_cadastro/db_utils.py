@@ -88,3 +88,17 @@ def inserir_nova_senha_profissional(nova_senha, email_base):
         return professional.login_profissional()
     except sqlite3.Error as error:
         print(error)
+
+#Função que adiciona informações do formulário do usuário
+def salvar_form_usuario(informacoes_pessoais, endereco, preferencia_user):
+    try:
+        for i in informacoes_pessoais:
+            banco = sqlite3.connect("form_user.db")
+            cursor = banco.cursor()
+            cursor.execute("CREATE TABLE IF NOT EXISTS form_user (nome text, telefone number, senha password, estado text, cidade text, bairro text, num_casa number)")
+            cursor.execute(f"INSERT INTO form_user VALUES (?, ?, ?, ?, ?, ?, ?)", (nome, email, senha)) #Insere os valores no banco
+            banco.commit()
+            banco.close()
+    except:
+        print("teste")
+    return None

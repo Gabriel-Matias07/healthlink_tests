@@ -108,14 +108,12 @@ def recuperar_senha_usuario(email_login):
 #Função de formulário do usuário
 def form_usuario(dado_retornado):
     print(f"Detectamos que você se cadastrou na nossa plataforma como {dado_retornado}. Iremos precisar de algumas informações para darmos prosseguimento.\n ")
-    print("Informações pessoais.\n ")
     informacoes_pessoais = []
     endereco = []
     preferencia_user = []
 
     nome_completo = input("Nome completo: ")
     telefone = input("Telefone: ")
-    print("Endereço completo.\n ")
     estado = input("Estado: ")
     cidade = input("Cidade: ")
     bairro = input("Bairro: ")
@@ -138,15 +136,31 @@ def form_usuario(dado_retornado):
     resposta = int(input("Selecione sua prefência: "))
     for i in range(len(preferencias_contratacao_user)):
         resposta = int(resposta)
+        print(f"{i + 1} - {preferencias_contratacao_user[i]}" )
+    print("\n")
+    resposta = int(input("Selecione sua prefência: "))
+    for i in range(len(preferencias_contratacao_user)):
+        resposta = int(resposta - 1)
         if resposta == i:
             add = preferencias_contratacao_user[i]
             print(add)
             preferencia_user.append(add)
     print(preferencia_user)
-
     return salvar_form_usuario(informacoes_pessoais, endereco)
-
 
 #Função que armazena as informações permanentemente
 def salvar_form_usuario(informacoes_pessoais, endereco):
+    return salvar_form_usuario(informacoes_pessoais, endereco, preferencia_user)
+
+
+#Função que armazena as informações permanentemente
+def salvar_form_usuario(informacoes_pessoais, endereco, preferencia_user):
+    arquivo = open("dados_form.txt", "a")
+    for i in informacoes_pessoais:
+        arquivo.write(f"{i}")
+    for i in endereco:
+        arquivo.write(f"{i}")
+    arquivo.close()
+    for i in preferencia_user:
+        arquivo.write(f"{i}")
     return None
