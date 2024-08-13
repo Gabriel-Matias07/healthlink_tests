@@ -130,6 +130,29 @@ def form_usuario(dado_retornado):
     #Percorre uma lista pré-definida de opções, imprime e recebe da entrada padrão o valor escolhido, inserindo em uma lista
     print("Preferência de contratação.\n ")
     preferencias_contratacao_user = ['Médico', 'Enfermeiro', 'Fisioterapeuta']
+
+    #Laço pra mostrar a lista de preferências
+    for opcao in preferencia_user:
+        for i in range(len(preferencia_user) + 1):
+            print(f"{opcao}\n")
+    con = True
+    while con:
+        resposta = int(input("Digite o número das suas preferências e/ou '0' para encerrar: "))
+        if resposta == 0:
+            con = False
+        else:
+            for i in preferencia_user:
+                if resposta == preferencia_user[i]:
+                    preferencias_contratacao_user.append(resposta)
+            else:
+                print("Valor digitado é inválido! ")
+                con = True
+
+#Função que mostra as informações escolhidas pelo usuário
+def mostrar_info(reposta, preferencia_user):
+
+
+
     for i in range(len(preferencias_contratacao_user)):
         print(f"{i + 1} - {preferencias_contratacao_user[i]}" )
     print("\n")
