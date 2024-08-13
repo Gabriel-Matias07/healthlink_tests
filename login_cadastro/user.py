@@ -129,27 +129,27 @@ def form_usuario(dado_retornado):
 
     #Percorre uma lista pré-definida de opções, imprime e recebe da entrada padrão o valor escolhido, inserindo em uma lista
     print("Preferência de contratação.\n ")
-    preferencias_contratacao_user = ['Médico', 'Enfermeiro', 'Fisioterapeuta']
+    preferencias_contratacao_user = ['Médico', 'Enfermeiro', 'Fisioterapeuta', 'Dentista']
 
     #Laço pra mostrar a lista de preferências
     i = 1
     for opcao in preferencias_contratacao_user:
             print(f"{i} - {opcao}\n")
             i += 1
-    
-    con = True
-    while con:
+
+    while True:
         resposta = int(input("Digite o número das suas preferências e/ou '0' para encerrar: "))
+    
         if resposta == 0:
-            con = False
             mostrar_info(informacoes_pessoais, endereco, preferencia_user)
+            break 
+    
+        if 1 <= resposta <= len(preferencias_contratacao_user):
+            preferencia_selecionada = preferencias_contratacao_user[resposta - 1]
+            preferencia_user.append(preferencia_selecionada)
+            print(f"Você escolheu: {preferencia_selecionada}\n")
         else:
-            for i in range(len(preferencias_contratacao_user)):
-                if resposta == preferencias_contratacao_user[i]:
-                    preferencia_user.append(resposta)
-            else:
-                print("Valor digitado é inválido! ")
-                con = True
+            print("Valor digitado é inválido! Tente novamente.\n")
 
 #Função que mostra as informações escolhidas pelo usuário
 def mostrar_info(informacoes_pessoais, endereco, preferencia_user ):
@@ -163,7 +163,8 @@ def mostrar_info(informacoes_pessoais, endereco, preferencia_user ):
     for i in preferencia_user:
         print(f"{i}\n")
 
-    return salvar_form_usuario()
+
+"""     return salvar_form_usuario()
 
 
 #Função que armazena as informações permanentemente
@@ -176,4 +177,4 @@ def salvar_form_usuario(informacoes_pessoais, endereco, preferencia_user):
     arquivo.close()
     for i in preferencia_user:
         arquivo.write(f"{i}")
-    return None
+    return None """
