@@ -140,6 +140,7 @@ def form_usuario(dado_retornado):
         resposta = int(input("Digite o número das suas preferências e/ou '0' para encerrar: "))
         if resposta == 0:
             con = False
+            mostrar_info(informacoes_pessoais, endereco, preferencia_user)
         else:
             for i in preferencia_user:
                 if resposta == preferencia_user[i]:
@@ -149,23 +150,18 @@ def form_usuario(dado_retornado):
                 con = True
 
 #Função que mostra as informações escolhidas pelo usuário
-def mostrar_info(reposta, preferencia_user):
+def mostrar_info(informacoes_pessoais, endereco, preferencia_user ):
+    print("Informações pessoais:\n")
+    for i in informacoes_pessoais:
+        print(f"{i}\n")
+    print("Endereço:\n")
+    for i in endereco:
+        print(f"{i}\n")
+    print("Suas preferências:\n")
+    for i in preferencia_user:
+        print(f"{i}\n")
 
-
-
-    for i in range(len(preferencias_contratacao_user)):
-        print(f"{i + 1} - {preferencias_contratacao_user[i]}" )
-    print("\n")
-    resposta = int(input("Selecione sua prefência: "))
-    for i in range(len(preferencias_contratacao_user)):
-        resposta = int(resposta - 1)
-        if resposta == i:
-            add = preferencias_contratacao_user[i]
-            print(add)
-            preferencia_user.append(add)
-    print(preferencia_user)
-
-    return salvar_form_usuario(informacoes_pessoais, endereco, preferencia_user)
+    return salvar_form_usuario()
 
 
 #Função que armazena as informações permanentemente
