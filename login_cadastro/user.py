@@ -9,7 +9,7 @@ def usuario(retorno):
     escolha = input("Selecione 1 para login, 2 para cadastro ou 0 para encerrar: ")
     if escolha == '1':
         print(retorno)
-        return login_usuario()
+        return db_utils.login_usuario()
     elif escolha == '2':
         return cadastro_usuario(), redirect.redirecionar(retorno)
     elif escolha == '0':
@@ -59,45 +59,6 @@ def confirma_senha(senha):
         return confirma_senha(senha)
     else:
         return None
-
-#Função para verificar se o login existe e logar no sistema
-def login_usuario():
-    email_login = input("Digite seu email: ")
-    senha_login = input("Digite sua senha: ")
-
-    if not '@' in email_login or not '.com' in email_login:
-        print("Um email válido deve conter '@' e '.com'")
-        return login_usuario()
-    else:
-        pass
-    if len(senha_login) <= 5:
-        print("Uma senha válida precisa ter mais de 5 caracteres. ")
-        return login_usuario()
-    try:
-        banco = sqlite3.connect("dados_usuarios.db")
-        cursor = banco.cursor()
-        cursor.execute("SELECT senha FROM dados_usuarios WHERE email = ?", (email_login,)) #Verifica a coluna senha onde email condiz ao parêmetro
-        resultado = cursor.fetchone() #Retorna uma tupla contendo o valor da coluna senha
-
-        if resultado:
-            senha_salva = resultado[0]
-            if senha_login == senha_salva:
-                print("Login bem-sucedido.")
-            else:
-                print("Senha incorreta.")
-                resposta = input("Esqueceu sua senha? Digite 1 para recuperar ou 2 para tentar novamente: ")
-                if resposta == '1':
-                    return recuperar_senha_usuario(email_login)
-                elif resposta == '2':
-                    return login_usuario()
-                else:
-                    print("Valor inválido.")
-                    return login_usuario()
-        else:
-            print("Email não encontrado.")
-            return login_usuario()
-    except sqlite3.Error as error:
-        print(error)
 
 #Função que recupera senha do usuário para email especificado        
 def recuperar_senha_usuario(email_login):
