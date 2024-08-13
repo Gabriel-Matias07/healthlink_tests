@@ -1,4 +1,4 @@
-#Módulo para funções relacionadas ao profissionak
+#Módulo para funções relacionadas ao profissional
 
 import sqlite3
 import utils,db_utils,redirect
