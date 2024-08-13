@@ -163,18 +163,4 @@ def mostrar_info(informacoes_pessoais, endereco, preferencia_user ):
     for i in preferencia_user:
         print(f"{i}\n")
 
-
-"""     return salvar_form_usuario()
-
-
-#Função que armazena as informações permanentemente
-def salvar_form_usuario(informacoes_pessoais, endereco, preferencia_user):
-    arquivo = open("dados_form.txt", "a")
-    for i in informacoes_pessoais:
-        arquivo.write(f"{i}")
-    for i in endereco:
-        arquivo.write(f"{i}")
-    arquivo.close()
-    for i in preferencia_user:
-        arquivo.write(f"{i}")
-    return None """
+    return db_utils.salvar_form_usuario(informacoes_pessoais, endereco, preferencia_user) #Retorna três listas como parâmetro
