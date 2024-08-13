@@ -132,9 +132,9 @@ def form_usuario(dado_retornado):
     preferencias_contratacao_user = ['Médico', 'Enfermeiro', 'Fisioterapeuta']
 
     #Laço pra mostrar a lista de preferências
-    for opcao in preferencia_user:
-        for i in range(len(preferencia_user) + 1):
-            print(f"{opcao}\n")
+    for opcao in preferencias_contratacao_user:
+        for i in range(len(preferencias_contratacao_user) + 1):
+            print(f"{i} - {opcao}\n")
     con = True
     while con:
         resposta = int(input("Digite o número das suas preferências e/ou '0' para encerrar: "))
