@@ -1,6 +1,7 @@
 
 import time,sqlite3, os
 import user,professional
+import pwinput
 
 #Módulo específico para interações com o banco de dados
 
@@ -93,7 +94,8 @@ def inserir_nova_senha_profissional(nova_senha, email_base):
 #Função para verificar se o login existe e logar no sistema
 def login_usuario():
     email_login = input("Digite seu email: ")
-    senha_login = input("Digite sua senha: ")
+    """ senha_login = input("Digite sua senha: ") """
+    senha_login = pwinput.pwinput(prompt = 'Digite sua senha: ')
 
     if not '@' in email_login or not '.com' in email_login:
         print("Um email válido deve conter '@' e '.com'")
@@ -133,7 +135,8 @@ def login_usuario():
 #Função para verificar se o login existe e logar no sistema
 def login_profissional():
     email_login = input("Digite seu email: ")
-    senha_login = input("Digite sua senha: ")
+    """ senha_login = input("Digite sua senha: ") """
+    senha_login = pwinput.pwinput(prompt = 'Digite sua senha: ')
 
     if not '@' in email_login or not '.com' in email_login:
         print("Um email válido deve conter '@' e '.com'")
@@ -172,5 +175,7 @@ def login_profissional():
 
 #Função que adiciona informações do formulário do usuário ao banco de dados
 def salvar_form_usuario(informacoes_pessoais, endereco, preferencia_user):
-    #A ideia é percorrer as listas e adicionar cada item a uma tabela do banco de dados
+    #A ideia é percorrer as listas e adicionar cada item a uma tabela do banco de dados simples (txt)
+
+   
     return None

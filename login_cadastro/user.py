@@ -1,6 +1,7 @@
 #Módulo para funções relacionadas ao usuário
 
 import sqlite3
+import pwinput
 import utils,db_utils,redirect
 
 #Função que permite usuário escolher entre login, cadastro no sistema ou encerrar programa
@@ -45,7 +46,7 @@ def cadastro_email():
         return email
 
 def cadastro_senha():
-    senha = input("Digite a sua senha: ")
+    senha = pwinput.pwinput(prompt = 'Digite a sua senha: ')
     if len(senha) <= 5:
         print("Uma senha válida precisa ter mais de 5 caracteres. ")
         return cadastro_senha()
@@ -53,7 +54,7 @@ def cadastro_senha():
         return senha
 
 def confirma_senha(senha):
-    conf_senha = input("Confirme sua senha: ")
+    conf_senha = pwinput.pwinput(prompt = 'Confirme sua senha: ')
     if senha != conf_senha:
         print("As senhas são diferentes. ")
         return confirma_senha(senha)
@@ -63,7 +64,8 @@ def confirma_senha(senha):
 #Função que recupera senha do usuário para email especificado        
 def recuperar_senha_usuario(email_login):
     email_base = email_login
-    nova_senha =  input(f"Digita uma nova senha para o email '{email_login}': ")
+    """ nova_senha =  input(f"Digita uma nova senha para o email '{email_login}': ") """
+    nova_senha = pwinput.pwinput(prompt = f'Digita uma nova senha para o email {email_login}: ')
     return db_utils.inserir_nova_senha_usuario(nova_senha, email_base)
 
 #Função de formulário do usuário
@@ -114,14 +116,17 @@ def form_usuario(dado_retornado):
 
 #Função que mostra as informações escolhidas pelo usuário
 def mostrar_info(informacoes_pessoais, endereco, preferencia_user ):
+    print("\n")
     print("Informações pessoais:\n")
     for i in informacoes_pessoais:
-        print(f"{i}\n")
+        print(f"{i}")
+    print("\n")
     print("Endereço:\n")
     for i in endereco:
-        print(f"{i}\n")
+        print(f"{i}")
+    print("\n")
     print("Suas preferências:\n")
     for i in preferencia_user:
-        print(f"{i}\n")
+        print(f"{i}")
 
     return db_utils.salvar_form_usuario(informacoes_pessoais, endereco, preferencia_user) #Retorna três listas como parâmetro
