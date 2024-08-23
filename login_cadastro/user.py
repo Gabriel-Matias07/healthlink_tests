@@ -72,10 +72,11 @@ def recuperar_senha_usuario(email_login):
 def form_usuario(dado_retornado):
     print(f"Detectamos que você se cadastrou na nossa plataforma como {dado_retornado}. Iremos precisar de algumas informações para darmos prosseguimento.\n ")
     informacoes_pessoais = []
-    endereco = []
-    preferencia_user = []
-
-    nome_completo = input("Nome completo: ")
+    """ endereco = []
+    """
+    preferencia_user = [] 
+    
+    """ nome_completo = input("Nome completo: ") """
     telefone = input("Telefone: ")
     estado = input("Estado: ")
     cidade = input("Cidade: ")
@@ -83,12 +84,18 @@ def form_usuario(dado_retornado):
     numero_casa = input("Número da casa: ")
 
     #Adicionando valores nas listas
-    informacoes_pessoais.append(nome_completo)
+    """ informacoes_pessoais.append(nome_completo)
     informacoes_pessoais.append(telefone)
     endereco.append(estado)
     endereco.append(cidade)
     endereco.append(bairro)
-    endereco.append(numero_casa)
+    endereco.append(numero_casa) """
+
+    informacoes_pessoais.append(telefone)
+    informacoes_pessoais.append(estado)
+    informacoes_pessoais.append(cidade)
+    informacoes_pessoais.append(bairro)
+    informacoes_pessoais.append(numero_casa)
 
     #Percorre uma lista pré-definida de opções, imprime e recebe da entrada padrão o valor escolhido, inserindo em uma lista
     print("Preferência de contratação.\n ")
@@ -104,9 +111,8 @@ def form_usuario(dado_retornado):
         resposta = int(input("Digite o número das suas preferências e/ou '0' para encerrar: "))
     
         if resposta == 0:
-            mostrar_info(informacoes_pessoais, endereco, preferencia_user)
+            mostrar_info(informacoes_pessoais, preferencia_user)
             break 
-    
         if 1 <= resposta <= len(preferencias_contratacao_user):
             preferencia_selecionada = preferencias_contratacao_user[resposta - 1]
             preferencia_user.append(preferencia_selecionada)
@@ -115,18 +121,18 @@ def form_usuario(dado_retornado):
             print("Valor digitado é inválido! Tente novamente.\n")
 
 #Função que mostra as informações escolhidas pelo usuário
-def mostrar_info(informacoes_pessoais, endereco, preferencia_user ):
+def mostrar_info(informacoes_pessoais, preferencia_user ):
     print("\n")
     print("Informações pessoais:\n")
     for i in informacoes_pessoais:
         print(f"{i}")
     print("\n")
-    print("Endereço:\n")
+    """ print("Endereço:\n")
     for i in endereco:
         print(f"{i}")
-    print("\n")
+    print("\n") """
     print("Suas preferências:\n")
     for i in preferencia_user:
         print(f"{i}")
 
-    return db_utils.salvar_form_usuario(informacoes_pessoais, endereco, preferencia_user) #Retorna três listas como parâmetro
+    return db_utils.salvar_form_usuario(informacoes_pessoais, preferencia_user) #Retorna duas listas como parâmetro

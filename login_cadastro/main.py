@@ -23,7 +23,7 @@ def apresentacao():
 def escolher_opcao():
     escolha = input("Digite 1 para Usuário, 2 para Profissional ou 0 para encerrar: ")
     if escolha == '1':
-        retorno = "usuario"
+        retorno = "usuário"
         return user.usuario(retorno)
     elif escolha == '2':
         retorno = "profissional"

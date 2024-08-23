@@ -4,7 +4,7 @@ import user,professional
 #Função que recebe qual valor e redireciona corretamente
 def redirecionar(retorno):
     dado_retornado = retorno
-    usuario = "usuario"
+    usuario = "usuário"
     profissional = "profissional"   
     if dado_retornado == usuario:
         return user.form_usuario(dado_retornado)
