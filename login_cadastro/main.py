@@ -21,7 +21,7 @@ def apresentacao():
 
 #Função para escolher entre prestador de serviços (profissiona), cliente (usuário) ou encerrar programa
 def escolher_opcao():
-    escolha = input("Digite 1 para Usuário, 2 para Profissional ou 0 para encerrar: \n")
+    escolha = input("Digite 1 para Usuário, 2 para Profissional ou 0 para encerrar: ")
     if escolha == '1':
         retorno = "usuario"
         return user.usuario(retorno)
