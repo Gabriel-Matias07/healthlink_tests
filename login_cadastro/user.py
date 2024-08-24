@@ -76,20 +76,12 @@ def form_usuario(dado_retornado):
     """
     preferencia_user = [] 
     
-    """ nome_completo = input("Nome completo: ") """
+  
     telefone = input("Telefone: ")
     estado = input("Estado: ")
     cidade = input("Cidade: ")
     bairro = input("Bairro: ")
     numero_casa = input("Número da casa: ")
-
-    #Adicionando valores nas listas
-    """ informacoes_pessoais.append(nome_completo)
-    informacoes_pessoais.append(telefone)
-    endereco.append(estado)
-    endereco.append(cidade)
-    endereco.append(bairro)
-    endereco.append(numero_casa) """
 
     informacoes_pessoais.append(telefone)
     informacoes_pessoais.append(estado)
