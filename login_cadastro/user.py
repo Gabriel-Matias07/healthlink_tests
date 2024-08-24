@@ -111,28 +111,13 @@ def form_usuario(dado_retornado):
         resposta = int(input("Digite o número das suas preferências e/ou '0' para encerrar: "))
     
         if resposta == 0:
-            mostrar_info(informacoes_pessoais, preferencia_user)
-            break 
+            utils.carregamento()
+            utils.mostrar_info(informacoes_pessoais, preferencia_user)
+            #Objetivo é importar o módulo uuid e atribuir UUID único para cada user
+            break
         if 1 <= resposta <= len(preferencias_contratacao_user):
             preferencia_selecionada = preferencias_contratacao_user[resposta - 1]
             preferencia_user.append(preferencia_selecionada)
             print(f"Você escolheu: {preferencia_selecionada}\n")
         else:
             print("Valor digitado é inválido! Tente novamente.\n")
-
-#Função que mostra as informações escolhidas pelo usuário
-def mostrar_info(informacoes_pessoais, preferencia_user ):
-    print("\n")
-    print("Informações pessoais:\n")
-    for i in informacoes_pessoais:
-        print(f"{i}")
-    print("\n")
-    """ print("Endereço:\n")
-    for i in endereco:
-        print(f"{i}")
-    print("\n") """
-    print("Suas preferências:\n")
-    for i in preferencia_user:
-        print(f"{i}")
-
-    return db_utils.salvar_form_usuario(informacoes_pessoais, preferencia_user) #Retorna duas listas como parâmetro

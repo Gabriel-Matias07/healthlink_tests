@@ -174,7 +174,20 @@ def login_profissional():
         print("Talvez você não tenha feito seu cadastro.")
 
 #Função que adiciona informações do formulário do usuário ao banco de dados
-def salvar_form_usuario(informacoes_pessoais, endereco, preferencia_user):
+def salvar_form_usuario(informacoes_pessoais, preferencia_user):
+    print(informacoes_pessoais, preferencia_user)
+    print("Esperando inserção no banco de dados, sucesso retorno da função!")
+
+    arquivo = open("informacoes_user.txt", "w")
+    for i in informacoes_pessoais:
+        arquivo.write(i)
+    arquivo.close()
+
+    arquivo = open("informacoes_user.txt", "r")
+    conteudo = arquivo.read()
+    print(conteudo)
+    arquivo.close()
+
     #A ideia é percorrer as listas e adicionar cada item a uma tabela do banco de dados simples (txt)
 
    

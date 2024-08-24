@@ -1,4 +1,4 @@
-import sys,time,os
+import sys,time,os, db_utils
 
 #Módulo para funções utilitárias que podem ser usadas em várias partes do programa
 
@@ -30,3 +30,21 @@ def escrevendo_texto(texto, atraso):
         sys.stdout.flush()
         time.sleep(atraso)
     print()
+
+#Função que mostra as informações escolhidas pelo usuário
+def mostrar_info(informacoes_pessoais, preferencia_user ):
+    print("\n")
+    print("Informações pessoais:\n")
+    for i in informacoes_pessoais:
+        print(f"{i}")
+    print("\n")
+    """ print("Endereço:\n")
+    for i in endereco:
+        print(f"{i}")
+    print("\n") """
+    print("Suas preferências:\n")
+    for i in preferencia_user:
+        print(f"{i}")
+    print("\n")
+
+    return db_utils.salvar_form_usuario(informacoes_pessoais, preferencia_user) #Retorna duas listas como parâmetro
