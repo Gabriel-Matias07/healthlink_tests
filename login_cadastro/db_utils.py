@@ -189,6 +189,4 @@ def salvar_form_usuario(informacoes_pessoais, preferencia_user):
     arquivo.close()
 
     #A ideia é percorrer as listas e adicionar cada item a uma tabela do banco de dados simples (txt)
-
-   
     return None

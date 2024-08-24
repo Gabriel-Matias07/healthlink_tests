@@ -38,10 +38,6 @@ def mostrar_info(informacoes_pessoais, preferencia_user ):
     for i in informacoes_pessoais:
         print(f"{i}")
     print("\n")
-    """ print("Endereço:\n")
-    for i in endereco:
-        print(f"{i}")
-    print("\n") """
     print("Suas preferências:\n")
     for i in preferencia_user:
         print(f"{i}")

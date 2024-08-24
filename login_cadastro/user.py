@@ -64,7 +64,6 @@ def confirma_senha(senha):
 #Função que recupera senha do usuário para email especificado        
 def recuperar_senha_usuario(email_login):
     email_base = email_login
-    """ nova_senha =  input(f"Digita uma nova senha para o email '{email_login}': ") """
     nova_senha = pwinput.pwinput(prompt = f'Digita uma nova senha para o email {email_login}: ')
     return db_utils.inserir_nova_senha_usuario(nova_senha, email_base)
 
@@ -72,11 +71,8 @@ def recuperar_senha_usuario(email_login):
 def form_usuario(dado_retornado):
     print(f"Detectamos que você se cadastrou na nossa plataforma como {dado_retornado}. Iremos precisar de algumas informações para darmos prosseguimento.\n ")
     informacoes_pessoais = []
-    """ endereco = []
-    """
     preferencia_user = [] 
     
-  
     telefone = input("Telefone: ")
     estado = input("Estado: ")
     cidade = input("Cidade: ")
