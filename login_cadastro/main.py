@@ -16,7 +16,7 @@ def apresentacao():
             time.sleep(atraso)
         print()
 
-    texto = "----O HealthLink é uma plataforma inovadora voltada para a área da saúde, desenvolvida para facilitar a comunicação direta e a contratação de profissionais de saúde.\n Nossa missão é democratizar o acesso aos serviços de saúde, conectando pacientes e profissionais de maneira eficiente e segura.----\n"
+    texto = "O HealthLink é uma plataforma inovadora voltada para a área da saúde, desenvolvida para facilitar a comunicação direta e a contratação de profissionais de saúde.\nNossa missão é democratizar o acesso aos serviços de saúde, conectando pacientes e profissionais de maneira eficiente e segura.\n"
     escrevendo_texto(texto, atraso=0.005)
 
 #Função para escolher entre prestador de serviços (profissiona), cliente (usuário) ou encerrar programa
