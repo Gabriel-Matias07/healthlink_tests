@@ -30,7 +30,7 @@ def cadastro_usuario():
     utils.msg_sucesso()
 
 def cadastro_nome():
-    nome = input("Digite o seu nome: ")
+    nome = input("Digite o seu nome completo: ")
     if not nome:
         print("Nome Inválido")
         return cadastro_nome()
