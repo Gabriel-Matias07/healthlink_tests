@@ -66,53 +66,5 @@ def recuperar_senha_profissional(email_login):
     nova_senha =  input(f"Digita uma nova senha para o email '{email_login}': ")
     profissional.inserir_nova_senha_profissional(nova_senha, email_base)
 
-#Função de formulário do profissional
-
-
-
-
-
-""" def form_profissional(dado_retornado):
-
-
-    #O cadastro do profissional será adaptado de acordo com a proposta do program
-    print(f"Detectamos que você se cadastrou na nossa plataforma como {dado_retornado}. Iremos precisar de algumas informações para darmos prosseguimento.\n ")
-    informacoes_pessoais = []
-    preferencia_ = [] 
-    
-    telefone = input("Telefone: ")
-    estado = input("Estado: ")
-    cidade = input("Cidade: ")
-    bairro = input("Bairro: ")
-    numero_casa = input("Número da casa: ")
-
-    informacoes_pessoais.append(telefone)
-    informacoes_pessoais.append(estado)
-    informacoes_pessoais.append(cidade)
-    informacoes_pessoais.append(bairro)
-    informacoes_pessoais.append(numero_casa)
-
-    #Percorre uma lista pré-definida de opções, imprime e recebe da entrada padrão o valor escolhido, inserindo em uma lista
-    print("Preferência de contratação.\n ")
-    preferencias_contratacao_user = ['Médico', 'Enfermeiro', 'Fisioterapeuta', 'Dentista']
-
-    #Laço pra mostrar a lista de preferências
-    i = 1
-    for opcao in preferencias_contratacao_user:
-            print(f"{i} - {opcao}\n")
-            i += 1
-
-    while True:
-        resposta = int(input("Digite o número das suas preferências e/ou '0' para encerrar: "))
-    
-        if resposta == 0:
-            utils.carregamento()
-            utils.mostrar_info(informacoes_pessoais, preferencia_user)
-            #Objetivo é importar o módulo uuid e atribuir UUID único para cada user
-            break
-        if 1 <= resposta <= len(preferencias_contratacao_user):
-            preferencia_selecionada = preferencias_contratacao_user[resposta - 1]
-            preferencia_user.append(preferencia_selecionada)
-            print(f"Você escolheu: {preferencia_selecionada}\n")
-        else:
-            print("Valor digitado é inválido! Tente novamente.\n") """
+def form_profissional():
+    print("Em breve")
