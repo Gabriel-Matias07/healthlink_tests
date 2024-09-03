@@ -85,6 +85,7 @@ def form_usuario(dado_retornado):
     informacoes_pessoais.append(bairro)
     informacoes_pessoais.append(numero_casa)
 
+   
     #Percorre uma lista pré-definida de opções, imprime e recebe da entrada padrão o valor escolhido, inserindo em uma lista
     print("Preferência de contratação.\n ")
     preferencias_contratacao_user = ['Médico', 'Enfermeiro', 'Fisioterapeuta', 'Dentista']
@@ -99,8 +100,9 @@ def form_usuario(dado_retornado):
         resposta = int(input("Digite o número das suas preferências e/ou '0' para encerrar: "))
     
         if resposta == 0:
-            utils.carregamento()
-            utils.mostrar_info(informacoes_pessoais, preferencia_user)
+            utils.carregamento() #
+            db_utils.salvar_form_usuario(telefone, estado, cidade, bairro, numero_casa)
+            """ utils.mostrar_info(informacoes_pessoais, preferencia_user) """
             break
         if 1 <= resposta <= len(preferencias_contratacao_user):
             preferencia_selecionada = preferencias_contratacao_user[resposta - 1]

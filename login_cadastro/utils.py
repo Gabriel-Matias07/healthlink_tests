@@ -8,6 +8,9 @@ def msg_sucesso():
     print("Cadastro realizado com sucesso. ")
     return None
 
+#Função que limpa o terminal ao ser chamada
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
 #Função que limpa o terminal e encerra o programa
 def encerrar():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -31,7 +34,7 @@ def escrevendo_texto(texto, atraso):
         time.sleep(atraso)
     print()
 
-#Função que mostra as informações escolhidas pelo usuário
+""" #Função que mostra as informações escolhidas pelo usuário
 def mostrar_info(informacoes_pessoais, preferencia_user ):
     print("\n")
     print("Informações pessoais:\n")
@@ -43,4 +46,4 @@ def mostrar_info(informacoes_pessoais, preferencia_user ):
         print(f"{i}")
     print("\n")
 
-    return db_utils.salvar_form_usuario(informacoes_pessoais, preferencia_user) #Retorna duas listas como parâmetro
+    return db_utils.salvar_form_usuario(informacoes_pessoais, preferencia_user) #Retorna duas listas como parâmetro """

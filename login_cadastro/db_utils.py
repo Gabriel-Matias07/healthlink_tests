@@ -1,6 +1,6 @@
 
 import time,sqlite3, os
-import user,professional
+import user,professional, utils
 import pwinput
 
 #Módulo específico para interações com o banco de dados
@@ -173,7 +173,7 @@ def login_profissional():
         print(f"Erro retornado: {error}")
         print("Talvez você não tenha feito seu cadastro.")
 
-#Função que adiciona informações do formulário do usuário ao banco de dados
+""" Função que adiciona informações do formulário do usuário ao banco de dados
 def salvar_form_usuario(informacoes_pessoais, preferencia_user):
     print(informacoes_pessoais, preferencia_user)
     print("Esperando inserção no banco de dados, sucesso retorno da função!")
@@ -188,5 +188,22 @@ def salvar_form_usuario(informacoes_pessoais, preferencia_user):
     print(conteudo)
     arquivo.close()
 
-    #A ideia é percorrer as listas e adicionar cada item a uma tabela do banco de dados simples (txt)
-    return None
+    A ideia é percorrer as listas e adicionar cada item a uma tabela do banco de dados simples (txt)
+    utils.clear()
+    return print("Dados devidamente cadastrados.") """
+
+#Função que adiciona informações do formulário do usuário ao banco de dados
+def salvar_form_usuario(telefone, estado, cidade, bairro, numeroCasa):
+    erro = False
+    try:
+        banco = sqlite3.connect("informacoe_user.db")
+        cursor = banco.cursor()
+        cursor.execute("CREATE TABLE IF NOT EXISTS informacoes_user (telefone text, estado text, cidade text, bairro text, numeroCasa text)") #Cria o banco caso não exista
+        cursor.execute(f"INSERT INTO informacoes_user VALUES (?, ?, ?, ?, ?)", (telefone, estado, cidade, bairro, numeroCasa)) #Insere os valores no banco
+        banco.commit()
+        banco.close()
+        utils.msg_sucesso()
+    except sqlite3.Error as error:
+        print(error)
+        erro = True
+    return erro
