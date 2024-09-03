@@ -66,8 +66,8 @@ def inserir_nova_senha_usuario(nova_senha, email_base):
         time.sleep(0.5)
         print("Retornando para o login...")
         time.sleep(2)
-        #os.system('cls' if os.name == 'nt' else 'clear')
-        return user.login_usuario()
+        os.system('cls' if os.name == 'nt' else 'clear')
+        return login_usuario()
     except sqlite3.Error as error:
         print(error)
 

@@ -101,7 +101,6 @@ def form_usuario(dado_retornado):
         if resposta == 0:
             utils.carregamento()
             utils.mostrar_info(informacoes_pessoais, preferencia_user)
-            #Objetivo é importar o módulo uuid e atribuir UUID único para cada user
             break
         if 1 <= resposta <= len(preferencias_contratacao_user):
             preferencia_selecionada = preferencias_contratacao_user[resposta - 1]
