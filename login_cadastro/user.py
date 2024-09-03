@@ -1,6 +1,5 @@
 #Módulo para funções relacionadas ao usuário
 
-import sqlite3
 import pwinput
 import utils,db_utils,redirect
 
