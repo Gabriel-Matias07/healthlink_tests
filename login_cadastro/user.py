@@ -102,7 +102,6 @@ def form_usuario(dado_retornado):
         if resposta == 0:
             utils.carregamento() #
             db_utils.salvar_form_usuario(telefone, estado, cidade, bairro, numero_casa)
-            """ utils.mostrar_info(informacoes_pessoais, preferencia_user) """
             break
         if 1 <= resposta <= len(preferencias_contratacao_user):
             preferencia_selecionada = preferencias_contratacao_user[resposta - 1]

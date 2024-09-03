@@ -173,30 +173,11 @@ def login_profissional():
         print(f"Erro retornado: {error}")
         print("Talvez você não tenha feito seu cadastro.")
 
-""" Função que adiciona informações do formulário do usuário ao banco de dados
-def salvar_form_usuario(informacoes_pessoais, preferencia_user):
-    print(informacoes_pessoais, preferencia_user)
-    print("Esperando inserção no banco de dados, sucesso retorno da função!")
-
-    arquivo = open("informacoes_user.txt", "w")
-    for i in informacoes_pessoais:
-        arquivo.write(i)
-    arquivo.close()
-
-    arquivo = open("informacoes_user.txt", "r")
-    conteudo = arquivo.read()
-    print(conteudo)
-    arquivo.close()
-
-    A ideia é percorrer as listas e adicionar cada item a uma tabela do banco de dados simples (txt)
-    utils.clear()
-    return print("Dados devidamente cadastrados.") """
-
 #Função que adiciona informações do formulário do usuário ao banco de dados
 def salvar_form_usuario(telefone, estado, cidade, bairro, numeroCasa):
     erro = False
     try:
-        banco = sqlite3.connect("informacoe_user.db")
+        banco = sqlite3.connect("informacoes_user.db")
         cursor = banco.cursor()
         cursor.execute("CREATE TABLE IF NOT EXISTS informacoes_user (telefone text, estado text, cidade text, bairro text, numeroCasa text)") #Cria o banco caso não exista
         cursor.execute(f"INSERT INTO informacoes_user VALUES (?, ?, ?, ?, ?)", (telefone, estado, cidade, bairro, numeroCasa)) #Insere os valores no banco
