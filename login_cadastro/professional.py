@@ -29,9 +29,9 @@ def cadastro_profissional():
     utils.msg_sucesso()
 
 def cadastro_nome():
-    nome = input("Digite o seu nome: ")
+    nome = input("Digite o seu nome completo: ")
     if not nome:
-        print("Nome inválido. ")
+        print("Nome Inválido")
         return cadastro_nome()
     else:
         return nome
@@ -45,7 +45,7 @@ def cadastro_email():
         return email
 
 def cadastro_senha():
-    senha = input("Digite a sua senha: ")
+    senha = pwinput.pwinput(prompt = 'Digite a sua senha: ')
     if len(senha) <= 5:
         print("Uma senha válida precisa ter mais de 5 caracteres. ")
         return cadastro_senha()
@@ -53,18 +53,18 @@ def cadastro_senha():
         return senha
 
 def confirma_senha(senha):
-    conf_senha = input("Confirme sua senha: ")
+    conf_senha = pwinput.pwinput(prompt = 'Confirme sua senha: ')
     if senha != conf_senha:
         print("As senhas são diferentes. ")
         return confirma_senha(senha)
     else:
         return None
 
-#Função que recupera senha do usuário para email especificado        
+#Função que recupera senha do usuário para email especificado
 def recuperar_senha_profissional(email_login):
     email_base = email_login
-    nova_senha =  input(f"Digita uma nova senha para o email '{email_login}': ")
-    profissional.inserir_nova_senha_profissional(nova_senha, email_base)
+    nova_senha = pwinput.pwinput(prompt = f'Digita uma nova senha para o email {email_login}: ')
+    return db_utils.inserir_nova_senha_profissional(nova_senha, email_base)      
 
 def form_profissional(dado_retornado):
     print(f"Detectamos que você se cadastrou na nossa plataforma como {dado_retornado}. Iremos precisar de algumas informações para darmos prosseguimento.\n ")

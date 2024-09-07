@@ -87,7 +87,7 @@ def inserir_nova_senha_profissional(nova_senha, email_base):
         print("Retornando para o login...")
         time.sleep(2)
         os.system('cls' if os.name == 'nt' else 'clear')
-        return professional.login_profissional()
+        return login_profissional()
     except sqlite3.Error as error:
         print(error)
 
@@ -160,7 +160,7 @@ def login_profissional():
                 print("Senha incorreta. ")
                 resposta = input("Esqueceu sua senha? Digite 1 para recuperar ou 2 para tentar novamente: ")
                 if resposta == '1':
-                    return user.recuperar_senha_profissional(email_login)
+                    return professional.recuperar_senha_profissional(email_login)
                 elif resposta == '2':
                     return login_profissional()
                 else:
